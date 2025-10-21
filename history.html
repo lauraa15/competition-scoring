@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat Skor Pertandingan</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Riwayat Skor</h1>
+            <div class="wayang-ornament"></div>
+        </header>
+
+        <main>
+            <!-- Navigation -->
+            <section class="navigation-section">
+                <button id="back-to-scorer" class="btn btn-add">← Kembali ke Skor</button>
+                <button id="clear-history" class="btn btn-subtract">Hapus Semua Riwayat</button>
+            </section>
+
+            <!-- History Display Section -->
+            <section class="history-section">
+                <div id="history-container" class="history-container">
+                    <div class="no-history">
+                        <p>Belum ada riwayat skor tersimpan</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="traditional-footer">
+                <div class="wayang-silhouette"></div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="history.js"></script>
+</body>
+</html>

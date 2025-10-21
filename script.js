@@ -14,11 +14,15 @@ const team1ScoreDisplay = document.getElementById('team1-score');
 const team2ScoreDisplay = document.getElementById('team2-score');
 const winnerText = document.getElementById('winner-text');
 const resetScoresBtn = document.getElementById('reset-scores');
+const saveScoreBtn = document.getElementById('save-score');
+const viewHistoryBtn = document.getElementById('view-history');
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
     // Event listeners
     resetScoresBtn.addEventListener('click', resetScores);
+    saveScoreBtn.addEventListener('click', saveScore);
+    viewHistoryBtn.addEventListener('click', viewHistory);
     
     // Initialize team names
     updateTeamName(1);
@@ -177,4 +181,99 @@ function showWelcomeMessage() {
 // Show welcome message on first load (optional)
 // Uncomment the line below if you want a welcome message
 // setTimeout(showWelcomeMessage, 1000);
+
+// Save score function
+function saveScore() {
+    const team1Name = team1Display.textContent;
+    const team2Name = team2Display.textContent;
+    
+    if (team1Score === 0 && team2Score === 0) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Skor Kosong!',
+            text: 'Tidak ada skor untuk disimpan.',
+            confirmButtonColor: '#FFB300',
+            background: '#FFF8E1',
+            color: '#2E1A16'
+        });
+        return;
+    }
+    
+    Swal.fire({
+        title: 'Simpan Skor?',
+        html: `
+            <div style="text-align: left; margin: 20px 0;">
+                <p><strong>${team1Name}:</strong> ${team1Score}</p>
+                <p><strong>${team2Name}:</strong> ${team2Score}</p>
+            </div>
+            <input type="text" id="match-note" class="swal2-input" placeholder="Catatan pertandingan (opsional)">
+        `,
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#FFB300',
+        cancelButtonColor: '#8D6E63',
+        confirmButtonText: 'Ya, Simpan!',
+        cancelButtonText: 'Batal',
+        background: '#FFF8E1',
+        color: '#2E1A16',
+        preConfirm: () => {
+            return document.getElementById('match-note').value;
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const note = result.value || '';
+            
+            // Get existing history from localStorage
+            let history = JSON.parse(localStorage.getItem('scoreHistory') || '[]');
+            
+            // Determine winner
+            let winner = '';
+            if (team1Score > team2Score) {
+                winner = team1Name;
+            } else if (team2Score > team1Score) {
+                winner = team2Name;
+            } else {
+                winner = 'Seri';
+            }
+            
+            // Create new score entry
+            const scoreEntry = {
+                id: Date.now(),
+                date: new Date().toLocaleString('id-ID'),
+                team1: {
+                    name: team1Name,
+                    score: team1Score
+                },
+                team2: {
+                    name: team2Name,
+                    score: team2Score
+                },
+                winner: winner,
+                note: note
+            };
+            
+            // Add to history
+            history.unshift(scoreEntry);
+            
+            // Save to localStorage
+            localStorage.setItem('scoreHistory', JSON.stringify(history));
+            
+            Swal.fire({
+                icon: 'success',
+                title: 'Skor Tersimpan!',
+                text: 'Skor pertandingan telah disimpan ke riwayat.',
+                confirmButtonColor: '#FFB300',
+                timer: 2000,
+                showConfirmButton: false,
+                background: '#FFF8E1',
+                color: '#2E1A16'
+            });
+        }
+    });
+}
+
+// View history function
+function viewHistory() {
+    window.location.href = 'history.html';
+}
 
