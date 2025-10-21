@@ -46,11 +46,13 @@ function loadHistory() {
                 <div class="history-body">
                     <div class="team-result">
                         <span class="team-name">${entry.team1.name}</span>
+                        ${entry.team1.institution ? `<span class="team-institution">${entry.team1.institution}</span>` : ''}
                         <span class="team-score ${entry.winner === entry.team1.name ? 'winning-score' : ''}">${entry.team1.score}</span>
                     </div>
                     <div class="vs-divider">VS</div>
                     <div class="team-result">
                         <span class="team-name">${entry.team2.name}</span>
+                        ${entry.team2.institution ? `<span class="team-institution">${entry.team2.institution}</span>` : ''}
                         <span class="team-score ${entry.winner === entry.team2.name ? 'winning-score' : ''}">${entry.team2.score}</span>
                     </div>
                 </div>

@@ -8,8 +8,12 @@ let team2Score = 0;
 // DOM elements
 const team1NameInput = document.getElementById('team1-name');
 const team2NameInput = document.getElementById('team2-name');
+const team1InstitutionInput = document.getElementById('team1-institution');
+const team2InstitutionInput = document.getElementById('team2-institution');
 const team1Display = document.getElementById('team1-display');
 const team2Display = document.getElementById('team2-display');
+const team1InstitutionDisplay = document.getElementById('team1-institution-display');
+const team2InstitutionDisplay = document.getElementById('team2-institution-display');
 const team1ScoreDisplay = document.getElementById('team1-score');
 const team2ScoreDisplay = document.getElementById('team2-score');
 const winnerText = document.getElementById('winner-text');
@@ -27,6 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize team names
     updateTeamName(1);
     updateTeamName(2);
+    updateInstitution(1);
+    updateInstitution(2);
 });
 
 // Update team name display
@@ -39,6 +45,17 @@ function updateTeamName(teamNumber) {
         const name = team2NameInput.value.trim() || 'Tim 2';
         team2Display.textContent = name;
         team2NameInput.value = name;
+    }
+}
+
+// Update institution display
+function updateInstitution(teamNumber) {
+    if (teamNumber === 1) {
+        const institution = team1InstitutionInput.value.trim();
+        team1InstitutionDisplay.textContent = institution;
+    } else {
+        const institution = team2InstitutionInput.value.trim();
+        team2InstitutionDisplay.textContent = institution;
     }
 }
 
@@ -186,6 +203,8 @@ function showWelcomeMessage() {
 function saveScore() {
     const team1Name = team1Display.textContent;
     const team2Name = team2Display.textContent;
+    const team1Institution = team1InstitutionDisplay.textContent;
+    const team2Institution = team2InstitutionDisplay.textContent;
     
     if (team1Score === 0 && team2Score === 0) {
         Swal.fire({
@@ -203,8 +222,8 @@ function saveScore() {
         title: 'Simpan Skor?',
         html: `
             <div style="text-align: left; margin: 20px 0;">
-                <p><strong>${team1Name}:</strong> ${team1Score}</p>
-                <p><strong>${team2Name}:</strong> ${team2Score}</p>
+                <p><strong>${team1Name}</strong>${team1Institution ? ' (' + team1Institution + ')' : ''}<strong>:</strong> ${team1Score}</p>
+                <p><strong>${team2Name}</strong>${team2Institution ? ' (' + team2Institution + ')' : ''}<strong>:</strong> ${team2Score}</p>
             </div>
             <input type="text" id="match-note" class="swal2-input" placeholder="Catatan pertandingan (opsional)">
         `,
@@ -242,11 +261,13 @@ function saveScore() {
                 date: new Date().toLocaleString('id-ID'),
                 team1: {
                     name: team1Name,
-                    score: team1Score
+                    score: team1Score,
+                    institution: team1Institution
                 },
                 team2: {
                     name: team2Name,
-                    score: team2Score
+                    score: team2Score,
+                    institution: team2Institution
                 },
                 winner: winner,
                 note: note

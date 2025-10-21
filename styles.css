@@ -129,6 +129,15 @@ header h1 {
     text-align: center;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px var(--shadow-brown);
+    margin-bottom: 10px;
+}
+
+.team-input input:last-child {
+    margin-bottom: 0;
+    font-size: 14px;
+    padding: 12px 15px;
+    border: 2px solid var(--light-brown);
+    font-weight: 400;
 }
 
 .team-input input:focus {
@@ -196,8 +205,16 @@ header h1 {
     font-size: 1.8rem;
     font-weight: 600;
     color: var(--gold-accent);
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     text-shadow: 2px 2px 4px var(--shadow-brown);
+}
+
+.institution-display {
+    font-size: 1rem;
+    color: var(--light-brown);
+    margin-bottom: 15px;
+    font-style: italic;
+    min-height: 20px;
 }
 
 .score-display {
@@ -660,6 +677,14 @@ footer {
     font-size: 1.3rem;
     font-weight: 600;
     color: var(--gold-accent);
+    margin-bottom: 5px;
+}
+
+.team-institution {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--light-brown);
+    font-style: italic;
     margin-bottom: 10px;
 }
 

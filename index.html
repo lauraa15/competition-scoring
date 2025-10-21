@@ -19,10 +19,12 @@
             <section class="team-names">
                 <div class="team-input">
                     <input type="text" id="team1-name" placeholder="Nama Tim 1" value="Tim 1" onchange="updateTeamName(1)">
+                    <input type="text" id="team1-institution" placeholder="Asal Instansi (Sekolah/Fakultas)" onchange="updateInstitution(1)">
                 </div>
                 <div class="vs-traditional">VS</div>
                 <div class="team-input">
                     <input type="text" id="team2-name" placeholder="Nama Tim 2" value="Tim 2" onchange="updateTeamName(2)">
+                    <input type="text" id="team2-institution" placeholder="Asal Instansi (Sekolah/Fakultas)" onchange="updateInstitution(2)">
                 </div>
             </section>
 
@@ -31,6 +33,7 @@
                 <div class="scoreboard">
                     <div class="team-score">
                         <h2 id="team1-display">Tim 1</h2>
+                        <p class="institution-display" id="team1-institution-display"></p>
                         <div class="score-display" id="team1-score">0</div>
                         <div class="score-controls">
                             <button class="btn btn-add" onclick="addPoints(1, 10)">+10</button>
@@ -50,6 +53,7 @@
 
                     <div class="team-score">
                         <h2 id="team2-display">Tim 2</h2>
+                        <p class="institution-display" id="team2-institution-display"></p>
                         <div class="score-display" id="team2-score">0</div>
                         <div class="score-controls">
                             <button class="btn btn-add" onclick="addPoints(2, 10)">+10</button>
