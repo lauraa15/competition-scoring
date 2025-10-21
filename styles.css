@@ -1,0 +1,525 @@
+/* Indonesian Cultural Theme - Dark Brownish Palette */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Color Palette - Indonesian Traditional */
+:root {
+    --primary-brown: #3E2723;
+    --secondary-brown: #5D4037;
+    --accent-brown: #8D6E63;
+    --light-brown: #A1887F;
+    --gold-accent: #FFB300;
+    --cream: #FFF8E1;
+    --dark-text: #2E1A16;
+    --shadow-brown: rgba(62, 39, 35, 0.3);
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--primary-brown) 0%, var(--secondary-brown) 50%, var(--accent-brown) 100%);
+    min-height: 100vh;
+    color: var(--cream);
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Traditional Background Pattern */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(255, 179, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(255, 179, 0, 0.05) 0%, transparent 50%);
+    background-size: 200px 200px;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header with Wayang Elements */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--gold-accent);
+    text-shadow: 3px 3px 6px var(--shadow-brown);
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.wayang-ornament {
+    width: 100px;
+    height: 20px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--gold-accent) 20%, 
+        var(--gold-accent) 80%, 
+        transparent 100%);
+    margin: 0 auto;
+    border-radius: 10px;
+    position: relative;
+}
+
+.wayang-ornament::before,
+.wayang-ornament::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: var(--gold-accent);
+    border-radius: 50%;
+    top: -5px;
+}
+
+.wayang-ornament::before {
+    left: -15px;
+}
+
+.wayang-ornament::after {
+    right: -15px;
+}
+
+/* Team Names Section */
+.team-names {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.team-input {
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.team-input input {
+    width: 100%;
+    padding: 15px 20px;
+    background: rgba(255, 248, 225, 0.9);
+    border: 3px solid var(--gold-accent);
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--dark-text);
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px var(--shadow-brown);
+}
+
+.team-input input:focus {
+    outline: none;
+    background: var(--cream);
+    border-color: var(--gold-accent);
+    box-shadow: 0 6px 20px var(--shadow-brown);
+    transform: translateY(-2px);
+}
+
+.vs-traditional {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--gold-accent);
+    text-shadow: 2px 2px 4px var(--shadow-brown);
+    position: relative;
+    padding: 0 20px;
+}
+
+.vs-traditional::before,
+.vs-traditional::after {
+    content: '◆';
+    position: absolute;
+    font-size: 1rem;
+    color: var(--light-brown);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.vs-traditional::before {
+    left: -10px;
+}
+
+.vs-traditional::after {
+    right: -10px;
+}
+
+/* Scoring Section */
+.scoring-section {
+    background: rgba(255, 248, 225, 0.1);
+    border-radius: 25px;
+    padding: 40px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 179, 0, 0.3);
+    box-shadow: 0 8px 32px var(--shadow-brown);
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.team-score {
+    flex: 1;
+    text-align: center;
+    min-width: 250px;
+}
+
+.team-score h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--gold-accent);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px var(--shadow-brown);
+}
+
+.score-display {
+    font-size: 5rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 25px;
+    text-shadow: 3px 3px 6px var(--shadow-brown);
+    padding: 30px;
+    background: linear-gradient(135deg, var(--secondary-brown), var(--primary-brown));
+    border-radius: 20px;
+    border: 4px solid var(--gold-accent);
+    box-shadow: inset 0 4px 8px rgba(0,0,0,0.3), 0 8px 16px var(--shadow-brown);
+    position: relative;
+}
+
+.score-display::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 2px solid rgba(255, 179, 0, 0.3);
+    border-radius: 15px;
+    pointer-events: none;
+}
+
+.score-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Traditional Divider */
+.traditional-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 20px;
+}
+
+.batik-pattern {
+    width: 60px;
+    height: 60px;
+    background: var(--gold-accent);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 4px 12px var(--shadow-brown);
+}
+
+.batik-pattern::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: var(--primary-brown);
+    border-radius: 50%;
+}
+
+.batik-pattern::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: var(--gold-accent);
+    border-radius: 50%;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 12px var(--shadow-brown);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-add {
+    background: linear-gradient(135deg, var(--gold-accent), #FFA000);
+    color: var(--dark-text);
+    margin: 3px;
+}
+
+.btn-add:hover {
+    background: linear-gradient(135deg, #FFA000, var(--gold-accent));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px var(--shadow-brown);
+}
+
+.btn-subtract {
+    background: linear-gradient(135deg, var(--accent-brown), var(--secondary-brown));
+    color: var(--cream);
+    margin: 3px;
+}
+
+.btn-subtract:hover {
+    background: linear-gradient(135deg, var(--secondary-brown), var(--accent-brown));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px var(--shadow-brown);
+}
+
+.btn-reset {
+    background: linear-gradient(135deg, var(--light-brown), var(--accent-brown));
+    color: var(--cream);
+    padding: 15px 30px;
+    font-size: 18px;
+}
+
+.btn-reset:hover {
+    background: linear-gradient(135deg, var(--accent-brown), var(--light-brown));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px var(--shadow-brown);
+}
+
+/* Winner Section */
+.winner-section {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.winner-section h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--gold-accent);
+    padding: 15px 30px;
+    background: linear-gradient(135deg, rgba(255, 179, 0, 0.2), rgba(255, 179, 0, 0.1));
+    border-radius: 15px;
+    border: 2px solid var(--gold-accent);
+    text-shadow: 2px 2px 4px var(--shadow-brown);
+    box-shadow: 0 4px 12px var(--shadow-brown);
+}
+
+/* Reset Section */
+.reset-section {
+    text-align: center;
+}
+
+/* Footer with Wayang Silhouette */
+footer {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.traditional-footer {
+    position: relative;
+    height: 60px;
+}
+
+.wayang-silhouette {
+    width: 200px;
+    height: 40px;
+    background: var(--gold-accent);
+    margin: 0 auto;
+    border-radius: 20px;
+    position: relative;
+    opacity: 0.6;
+}
+
+.wayang-silhouette::before,
+.wayang-silhouette::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: var(--gold-accent);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    top: -10px;
+}
+
+.wayang-silhouette::before {
+    left: 20px;
+    transform: rotate(-15deg);
+}
+
+.wayang-silhouette::after {
+    right: 20px;
+    transform: rotate(15deg);
+}
+
+/* Animation for score changes */
+@keyframes scoreChange {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.score-change {
+    animation: scoreChange 0.4s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .team-names {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .vs-traditional {
+        font-size: 2rem;
+        order: 2;
+    }
+    
+    .scoreboard {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .traditional-divider {
+        order: 2;
+        margin: 20px 0;
+    }
+    
+    .team-score {
+        min-width: 100%;
+    }
+    
+    .score-display {
+        font-size: 4rem;
+        padding: 25px;
+    }
+    
+    .scoring-section {
+        padding: 25px;
+    }
+    
+    .btn {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .score-display {
+        font-size: 3rem;
+        padding: 20px;
+    }
+    
+    .team-input input {
+        font-size: 16px;
+        padding: 12px 16px;
+    }
+    
+    .vs-traditional {
+        font-size: 1.5rem;
+    }
+    
+    .scoring-section {
+        padding: 20px;
+    }
+}
+
+/* SweetAlert2 Custom Styling */
+.swal2-popup {
+    background: var(--cream) !important;
+    color: var(--dark-text) !important;
+    border: 3px solid var(--gold-accent) !important;
+    border-radius: 20px !important;
+}
+
+.swal2-title {
+    color: var(--primary-brown) !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.swal2-content {
+    color: var(--dark-text) !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.swal2-confirm {
+    background: var(--gold-accent) !important;
+    color: var(--dark-text) !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+}
+
+.swal2-cancel {
+    background: var(--accent-brown) !important;
+    color: var(--cream) !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+}
+
